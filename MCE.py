@@ -1,7 +1,7 @@
 # 1. Download Python Software from https://www.python.org/downloads/
 # 2. Open Command Prompt as Administrator.
 # 3. To Check pip version type ‘pip --version’.
-# 4. If Pip Is Installed And Working, You Will See A Version Number, Otherwise Type ‘python get-pip.py’ And Run.
+# 4. If Pip Is already Installed, A Version Number will be outputted, Otherwise Type ‘python get-pip.py’ And Run.
 # 5. To Download Required Libraries for This MCE program, Type Following
 #    Commands:
 #    a. pip install num2words
