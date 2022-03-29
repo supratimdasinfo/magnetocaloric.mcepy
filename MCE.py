@@ -12,7 +12,7 @@
 #    f. pip install xlsxwriter
 #    g. pip install numpy
 
-#IMPORT_LIBRARIES
+
 import numpy as np
 import xlsxwriter
 import tableprint
@@ -22,280 +22,168 @@ import matplotlib.pyplot as plt
 from num2words import num2words
 
 
-#INPUT_VALUES
+Magnetization_val = []
+Temperature_vals = []
+External_Fields = []
+M = Magnetization_val
+T = Temperature_vals
+H = External_Fields
 
-M_values = []
-M = M_values
-T = []
-H = []
-
-print("\n\n\n   -------------------------- I N P U T   F I E L D --------------------------")
-print("\n   i.e. Please add one extra Magnetic Field in your excel sheet with Null \n   Magnetization values (M) to get accurate output.\n\n   e.g. If the value of Hmax = 50000, then add Hmax + ∇H \n\n")
+print("\n   i.e. Please add one extra magnetic field in your excel sheet with null \n   magnetization values (M) to get accurate output.\n\n   e.g. If the value of Hmax = 50000, then add Hmax + ∇H \n\n")
 datasample = [[0, -9.86761, -7.71622, '...'],[500, 4.69588, 7.84249, '...'],['...','...','...','...']]
 tableprint.table(datasample, ['Magnetic Field (H)', 'Moment(M) at 40K','Moment(M) at 44K','...'])
-
-yesorno = input("\n   Did You Enter The Data Into Your Excel Sheet Like This Format Given Above ?  ")
+yesorno = input("\n   have you arranged your data in your excel sheet according to the format given above ?  ")
 
 if yesorno == 'YES' :
      print ("\n")
 elif yesorno == 'yes' :
      print ("\n")
 else:
-     print ("\n   Please Arrange Your Excel Data Like This Above Format.  ")
+     print ("\n   please arrange your data according to the format given above.  ")
      exit()
 
-
-Path = input("\n   OK, Enter Your Excel File Location (example : C:\File name.xlsx): ")
-nn = int(input("\n   Enter the number of applied magnetic Field : "))
-Num_val = int(input("\n   Enter the total number of M value you need to take from Excel sheet : "))
-n = int(Num_val/nn)
-print("\n\n   OK...Now, enter", num2words(n), "Temperature Values\n")
+Path_one = input("\n   ok, enter your excel file location (example : C:\File name.xlsx): ")
+one_n = int(input("\n   enter the number of magnetic Field you have applied : "))
+two_n = int(input("\n   enter the total number of magnetization value you need to take from excel sheet : "))
+n = int(two_n/one_n)
+print("\n\n   ok...now, enter", num2words(n), "temperature values\n")
 
 for b in range(0, (n)):
-     T_v = input("   Enter the Temperature Value : ")
-     T.append(T_v)
-          
-print("\n\n   Now, From This Table data : \n")
-
-
+     Temperature_val = input("   Enter the Temperature Value : ")
+     T.append(Temperature_val)
      
-book = xlrd.open_workbook(Path)
+book = xlrd.open_workbook(Path_one)
 sheet = book.sheet_by_name('Sheet1')
-
 data = [[sheet.cell_value(r, c) for c in range(n+1)] for r in range(sheet.nrows)]
 
-Del_H = data[2][0] - data[1][0]
-
-for a in range(1, nn+1, 1):          
-
+for a in range(1, one_n+1, 1):          
      H.append((data[a])[0])
      for b in range(0, n):
-          T.append(T[b])
-               
+          T.append(T[b])               
      for b in range(1, n+1):
           M.append((data[a])[b])
 
-
-
-
-
-# MCE Calculation
-
-S_TT = 0
-
-for j in range(0, (nn-1), 1):
-     lw = n*j
-     up = ((j+1)*n) - 1
-     S_T = 0
-
-     for i in range (lw, up, 1):
-          S_m = ((float(M[i+1]) - float(M[i]))/(float(T[i+1]) - float(T[i]))) * (float(H[j+1]) - float(H[j]))
-          S_T += S_m
-          
-          S_T = float(S_T)
-
-
-     S_TT += S_T
-
-
-
-
-
-
-
-DSSSort = []
-TSort = []
-indmax = nn - 2
-Multiplier = (H[indmax]-H[0])/10
+three_entropy_change_con = []
+temperatures = []
+one_n_max = one_n - 2
+Multiplier = (H[one_n_max]-H[0])/10
 for q in range(0, n-1, 1):
-       
-     S_TTT = 0
-     DSSort = []
-
-     lww = q
-     for j,i in zip(range(0, (nn-1), 1),range(q, Num_val, n)):
-
-          S_mm = ((float(M[i+1]) - float(M[i]))/(float(T[i+1]) - float(T[i]))) * (float(H[j+1]) - float(H[j]))
-          S_TTT += S_mm
-          S_TTT = float(S_TTT)
-          Hj = H[j]
-          HHj = Hj % Multiplier
-          neg_S_TTT = -S_TTT
-          if HHj == 0 :
-               DSSort.append(neg_S_TTT)
-                    
-     TSort.append(float(T[q]))
-     DSSSort.append(DSSort)
-
+     one_entropy_change_con = 0
+     two_entropy_change_con = []
+     for j,i in zip(range(0, (one_n-1), 1),range(q, two_n, n)):
+          entropy_change = ((float(M[i+1]) - float(M[i]))/(float(T[i+1]) - float(T[i]))) * (float(H[j+1]) - float(H[j]))
+          one_entropy_change_con += entropy_change
+          one_entropy_change_con = float(one_entropy_change_con)
+          j_th_field = H[j]
+          remainder = j_th_field % Multiplier
+          neg_one_entropy_change_con = -one_entropy_change_con
+          if remainder == 0 :
+               two_entropy_change_con.append(neg_one_entropy_change_con)    
+     temperatures.append(float(T[q]))
+     three_entropy_change_con.append(two_entropy_change_con)
      
 Label = []
 for i in range(0, 11, 1):
      Label.append(str((i*Multiplier*((10)**(-4)))))
 
+six_entropy_change_con = []
+six_entropy_change_con.append(temperatures)
+five_entropy_change_con = []
 
-tem = []
-for i in range(0, n-1, 1):
-     tempr = T[i]
-     tem.append(tempr)
-
-del_S_values = []
-
-del_S_values.append(tem)
-
-DSfinall = []
 for j in range(0, 11, 1):
-
-     DSfinal = []
+     four_entropy_change_con = []
      for i in range(0, n-1, 1):
-          DSfinal.append((10**(-4))*(DSSSort[i])[j])
-     DSfinall.append(DSfinal)
-     del_S_values.append(DSfinal)
-
+          four_entropy_change_con.append((10**(-4))*(three_entropy_change_con[i])[j])
+     five_entropy_change_con.append(four_entropy_change_con)
+     six_entropy_change_con.append(four_entropy_change_con)
      
 colour = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'tab:orange', 'tab:gray', 'tab:brown', 'tab:blue']
-
-
      
-dirt = input("\n   Enter The File Name With Path (example : C:\File name.xlsx), In Which You Want To Save The ∇S data at those specific Temperatures : ")
-dirtt = input("\n   Enter The File Name With Path (example : C:\File name.xlsx), In Which You Want To Save The M^2 vs H/M data at those specific Temperatures : ")
+path_two = input("\n   enter the file path (example : C:\File name.xlsx), where entropy change values at those specific temperatures will be extracted : ")
+path_three = input("\n   enter the file path (example : C:\File name.xlsx), where the M^2 vs H/M data will be extracted : ")
 
-
-
-
-
-workbook = xlsxwriter.Workbook(dirt)
+workbook = xlsxwriter.Workbook(path_two)
 worksheet = workbook.add_worksheet()
-
 row = 0
-for col, data in enumerate(del_S_values):
+for col, data in enumerate(six_entropy_change_con):
      worksheet.write_column(row, col, data)
-
 workbook.close()
 
-
-
-
-
-nnp = nn - 1
+one_n_pop = one_n - 1
 M_plot_final = []
 H_plot_final = H
-H_plot_final.pop(nnp)
-for k in range(0, (n), 1):
-     
+H_plot_final.pop(one_n_pop)
+for k in range(0, n, 1):     
      M_plot = []
-     for l in range(0, (nn-1), 1):
-
+     for l in range(0, (one_n-1), 1):
           index = (((l+1)*(n - k)) + l*k) - 1
           M_plot.append(M[index])
-
      M_plot_final.append(M_plot)
 
-
-
-
-
-
 M_sqr = np.square(M_plot_final)
-
-H_by_M = []
+one_H_by_M_con = []
 
 for j in range(0, n, 1):
-    H_by_M_1D = []
-    for i in range(0, nn-1, 1):
-        
+    two_H_by_M_con = []
+    for i in range(0, one_n-1, 1):        
         H_by_M_val = H_plot_final[i] / M_plot_final[j][i]
-        H_by_M_1D.append(H_by_M_val)
-        
-            
-    H_by_M.append(H_by_M_1D)
+        two_H_by_M_con.append(H_by_M_val)            
+    one_H_by_M_con.append(two_H_by_M_con)
 
 
-
-
-
-
-#GRAPH_PLOT
-
-plt.subplot(2,2,1)
+# plt.subplot(2,2,1)
 for q in range(0, 11, 1):
-     for j in range(0, n-1, 1):
-          plt.plot((TSort), (DSfinall[q]), linestyle='solid', color = colour[q], marker = 'o')
-
-     for j in range(0, 1, 1):
-          plt.plot((TSort)[0], ((DSfinall[q])[0]), linestyle='solid',label= Label[q], color = colour[q], marker = 'o')
-          plt.legend(loc='upper right')   
-
+     plt.plot((temperatures), (five_entropy_change_con[q]), linestyle='solid', color = colour[q], marker = 'o')
+     plt.plot((temperatures)[0], ((five_entropy_change_con[q])[0]), linestyle='solid',label= Label[q], color = colour[q], marker = 'o')
+     plt.legend(loc='upper right')   
 plt.xlabel("Temperature")
 plt.ylabel("-∇S")
 plt.title("Change in Entropy vs Temperature")
-
+plt.show()
     
-
-
-plt.subplot(2,2,2)
+# plt.subplot(2,2,2)
 for k in range (0, n, 1):
      plcolour = (randint(0.0,1.0), randint(0.0,1.0), randint(0.0,1.0))
-     plt.plot(H_plot_final, M_plot_final[k], linestyle='solid', c = plcolour, marker = 'o', label = T[k] )
-
-
+     plt.plot(H_plot_final, M_plot_final[k], linestyle='solid', marker = 'p', label = T[k] )
 plt.legend(loc='upper right')     
 plt.xlabel("Magnetic Field(H)")
 plt.ylabel("Magnetization(M)")
 plt.title("Magnetization vs Applied Field")
+plt.show()
 
-
-
-plt.subplot(2,2,3)
+# plt.subplot(2,2,3)
 for i in range (0, n, 1):
-    plt.plot(H_by_M[i], M_sqr[i], linestyle='solid', label = T[i])
-
-
+    plt.plot(one_H_by_M_con[i], M_sqr[i], linestyle='solid',marker = 'p', label = T[i])
 plt.legend(loc='upper right')     
 plt.xlabel("H/M (Applied Field / Magnetization)")
 plt.ylabel("M^2 (Magnetization Square)")
 plt.title("M^2 vs H/M")
 plt.show()
 
-
-
-
-
-
 for i in range (0,2*n,1):
     lo = 2*i+1
-    T.insert(lo, '   ')   
-    
-xla = H_by_M
-xlb = M_sqr.tolist()
-
-
+    T.insert(lo, '   ')       
+M_sqr_vs_H_by_M = one_H_by_M_con
+M_sqr_tolist = M_sqr.tolist()
 
 for i in range (0,n,1):
     x_index = 2*i + 1
-    xla.insert(x_index, xlb[i])
+    M_sqr_vs_H_by_M.insert(x_index, M_sqr_tolist[i])
 
 for i in range (0,2*n,1):
-
-    xla[i].insert(0, T[i])
-    xla[i].insert(1, ' ')
+    M_sqr_vs_H_by_M[i].insert(0, T[i])
+    M_sqr_vs_H_by_M[i].insert(1, ' ')
     if i%2 == 0 :
-        xla[i].insert(2, 'H/M')
+        M_sqr_vs_H_by_M[i].insert(2, 'H/M')
     else:
-        xla[i].insert(2, 'M^2')
+        M_sqr_vs_H_by_M[i].insert(2, 'M^2')
         
-
-
-  
-
-
-workbook = xlsxwriter.Workbook(dirtt)
+workbook = xlsxwriter.Workbook(path_three)
 worksheet = workbook.add_worksheet()
-
 row = 0
-for col, data in enumerate(xla):
+for col, data in enumerate(M_sqr_vs_H_by_M):
      worksheet.write_column(row, col, data)
-
 workbook.close()
-print ("\n   Please Check Your Excel Files, Data Successfully Saved In These Files")
+print ("\n   please check your excel files, data has been successfully saved in those files")
 
 #Encoded By Supratim Das...
