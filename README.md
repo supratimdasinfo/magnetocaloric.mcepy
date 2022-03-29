@@ -1,4 +1,4 @@
 # Magnetocaloric-Effect
-
-From Isotherm M(H) curves, using The Maxwell Relation You Can Calculate MCE with the help of this program. Click https://www.youtube.com/watch?v=Dfbjq-EjPeY&t=25s to know how it works.
+EFFECTIVE APPROACH TO CALCULATE MAGNETOCALORIC EFFECT USING COMPUTER PROGRAMMING.
+From isotherm M(H) curves, using the Maxwell Relation magnetocaloric performance of a material can be estimated with the help of this program. click https://www.youtube.com/watch?v=Dfbjq-EjPeY&t=25s to see how it works.
 
