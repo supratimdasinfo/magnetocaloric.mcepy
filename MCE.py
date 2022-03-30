@@ -219,6 +219,6 @@ row = 0
 for col, data in enumerate(M_sqr_vs_H_by_M):
      worksheet.write_column(row, col, data)
 workbook.close()
-print ("\n   please check your excel files, data has been successfully saved in those files")
+print ("\n   please check your excel files, data have been successfully saved in those files")
 
 #Encoded By Supratim Das...
