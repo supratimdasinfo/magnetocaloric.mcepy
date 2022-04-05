@@ -150,7 +150,7 @@ for k in range(0, (one_n - 1), 1):
                
 
 for k in range (0, n, 1):
-     plt.plot(H_plot_final, one_M_plot_final[k], linestyle='solid', marker = 'P', label = T[k] )
+     plt.plot(H_plot_final, one_M_plot_final[k], linestyle='solid', marker = 'P', label = T[n-(k+1)] )
 plt.legend(loc='upper right')     
 plt.xlabel("Magnetic Field(H)")
 plt.ylabel("Magnetization(M)")
@@ -188,7 +188,7 @@ plt.show()
     
 
 for i in range (0, n, 1):
-    plt.plot(one_H_by_M_con[i], M_sqr[i], linestyle='solid',marker = 'p', label = T[i])
+    plt.plot(one_H_by_M_con[i], M_sqr[i], linestyle='solid',marker = 'p', label = T[n-(i+1)])
 plt.legend(loc='upper right')     
 plt.xlabel("H/M (Applied Field / Magnetization)")
 plt.ylabel("M^2 (Magnetization Square)")
