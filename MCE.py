@@ -64,30 +64,30 @@ for a in range(1, one_n+1, 1):
           M.append((data[a])[b])
 
 three_entropy_change_con = []
-three_dM_by_dT_con = []
+
 temperatures = []
 one_n_max = one_n - 2
 Multiplier = (H[one_n_max]-H[0])/10
 for q in range(0, n-1, 1):
      one_entropy_change_con = 0
-     one_dM_by_dT_con = 0
+
      two_entropy_change_con = []
-     two_dM_by_dT_con = []
+
      for j,i in zip(range(0, (one_n-1), 1),range(q, two_n, n)):
-          entropy_change = ((float(M[i+1]) - float(M[i]))/(float(T[i+1]) - float(T[i]))) * (float(H[j+1]) - float(H[j]))
-          dM_by_dT = ((float(M[i+1]) - float(M[i]))/(float(T[i+1]) - float(T[i])))
+          entropy_change = abs((float(M[i+1]) - float(M[i]))/(float(T[i+1]) - float(T[i]))) * (float(H[j+1]) - float(H[j]))
+
           one_entropy_change_con += entropy_change
-          one_dM_by_dT_con += dM_by_dT
+
           one_entropy_change_con = float(one_entropy_change_con)
           j_th_field = H[j]
           remainder = j_th_field % Multiplier
-          neg_one_entropy_change_con = -one_entropy_change_con
+          
           if remainder == 0 :
-               two_entropy_change_con.append(neg_one_entropy_change_con)
-               two_dM_by_dT_con.append(one_dM_by_dT_con)   
+               two_entropy_change_con.append(one_entropy_change_con)
+  
      temperatures.append(float(T[q]))
      three_entropy_change_con.append(two_entropy_change_con)
-     three_dM_by_dT_con.append(two_dM_by_dT_con)
+
      
 Label_one = []
 for i in range(0, 11, 1):
@@ -96,16 +96,16 @@ for i in range(0, 11, 1):
 six_entropy_change_con = []
 six_entropy_change_con.append(temperatures)
 five_entropy_change_con = []
-five_dM_by_dT_con = []
+
 
 for j in range(0, 11, 1):
      four_entropy_change_con = []
-     four_dM_by_dT_con = []
+
      for i in range(0, n-1, 1):
           four_entropy_change_con.append((10**(-4))*(three_entropy_change_con[i])[j])
-          four_dM_by_dT_con.append((10**(-4))*(three_dM_by_dT_con[i])[j])
+
      five_entropy_change_con.append(four_entropy_change_con)
-     five_dM_by_dT_con.append(four_dM_by_dT_con)
+
      six_entropy_change_con.append(four_entropy_change_con)
      
 colour = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'tab:orange', 'tab:gray', 'tab:brown', 'tab:blue']
@@ -150,7 +150,7 @@ for k in range(0, (one_n - 1), 1):
                
 
 for k in range (0, n, 1):
-     plt.plot(H_plot_final, one_M_plot_final[k], linestyle='solid', marker = 'P', label = T[n-(k+1)] )
+     plt.plot(H_plot_final, one_M_plot_final[k], linestyle='solid', marker = 'P', label = T[n-(k+1)])
 plt.legend(loc='upper right')     
 plt.xlabel("Magnetic Field(H)")
 plt.ylabel("Magnetization(M)")
@@ -174,16 +174,6 @@ for q in range(0, 11, 1):
 plt.xlabel("Temperature(T)")
 plt.ylabel("-∇Sm")
 plt.title("Change in Entropy vs Temperature")
-plt.show()
-
-    
-for q in range(0, 11, 1):
-     plt.plot((temperatures), (five_dM_by_dT_con[q]), linestyle='solid', color = colour[q], marker = '<')
-     plt.plot((temperatures)[0], ((five_dM_by_dT_con[q])[0]), linestyle='solid',label= Label_one[q], color = colour[q], marker = '<')
-     plt.legend(loc='upper right')   
-plt.xlabel("Temperature(T)")
-plt.ylabel("dM/dT")
-plt.title("dM/dT vs Temperature")
 plt.show()
     
 
@@ -219,6 +209,6 @@ row = 0
 for col, data in enumerate(M_sqr_vs_H_by_M):
      worksheet.write_column(row, col, data)
 workbook.close()
-print ("\n   please check your excel files, data have been successfully saved in those files")
+print ("\n   please check your excel files, data has been successfully saved in those files")
 
 #Encoded By Supratim Das...
