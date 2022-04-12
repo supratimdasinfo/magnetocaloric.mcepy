@@ -1,4 +1,4 @@
-# magnetocaloric 0.2.1
+# magnetocaloric 0.2.2
 #### Developed by Supratim Das
 ![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)
 
@@ -14,7 +14,7 @@ Effective approach to determine magnetocaloric performance of any magnetic mater
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install magnetocaloric package.
 
 ```bash
-pip install magnetocaloric==0.2.1
+pip install magnetocaloric==0.2.2
 ```
 ### 2. Manage Excel Spreadsheet
 -  Check the main excel spreadsheet from where the M-H data will be fetched by the program, data must be arranged in this format given below. 
@@ -24,7 +24,7 @@ pip install magnetocaloric==0.2.1
 
 - Create two new files (file extension xlsx) to hold the results obtained after the calculation and definitely make them closed, other wise XlsxWriter will not get access.
 
-###  4. Execution
+###  3. Execution
 Run the code at any python based environment ( IDLE, PyCharm, Spyder etc.). But I recommend you simply execute this program using command prompt or IDLE. Open new file in IDLE, encode the above program and execute.
 
 ```python
