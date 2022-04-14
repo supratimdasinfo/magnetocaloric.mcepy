@@ -21,7 +21,7 @@ pip install magnetocaloric==0.2.2
 
 ![](https://github.com/supratimdasinfo/Magnetocaloric-Effect/blob/main/Screenshot%20(229).png?raw=True)
 
--  And add one extra magnetic field (Hmax + ∆H) with null magnetic moment value. This is nothing else than to bring magnetic moment values of the last row under calculation.
+-  And add one extra magnetic field (Hmax + ∆H) with null magnetic moment values. This is nothing else than to bring magnetic moment values of the last row under calculation.
 
 ![](https://github.com/supratimdasinfo/Magnetocaloric-Effect/blob/main/Screenshot%20(232).png?raw=True)
 
