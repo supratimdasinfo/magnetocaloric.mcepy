@@ -20,7 +20,7 @@ pip install magnetocaloric==0.2.2
 -  Check the main excel spreadsheet from where the M-H data will be fetched by the program, data must be arranged in this format given below. 
 
 ![](https://github.com/supratimdasinfo/Magnetocaloric-Effect/blob/main/Screenshot%20(229).png?raw=True)
-
+- And add one extra magnetic field (Hmax + ∆H) with null magnetic moment value. This is nothing else than to bring magnetic moment values of the last row under calculation.
 ![](https://github.com/supratimdasinfo/Magnetocaloric-Effect/blob/main/Screenshot%20(232).png?raw=True)
 
 - Create two new files (file extension xlsx) to hold the results obtained after the calculation and definitely make them closed, other wise XlsxWriter will not get access.
