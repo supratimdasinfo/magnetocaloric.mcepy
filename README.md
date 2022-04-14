@@ -1,4 +1,4 @@
-# magnetocaloric 0.2.2
+# magnetocaloric 0.2.5
 #### Developed by Supratim Das
 ![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)
 
@@ -14,7 +14,7 @@ Effective approach to determine magnetocaloric performance of any magnetic mater
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install magnetocaloric package.
 
 ```bash
-pip install magnetocaloric==0.2.2
+pip install magnetocaloric==0.2.5
 ```
 ### 2. Manage Excel Spreadsheet
 -  Check the main excel spreadsheet from where the M-H data will be fetched by the program, data must be arranged in this format given below. 
