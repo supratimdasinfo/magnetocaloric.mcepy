@@ -31,8 +31,10 @@ pip install magnetocaloric==0.2.5
 Run the code at any python based environment ( IDLE, PyCharm, Spyder etc.). But I recommend you simply execute this program using command prompt or IDLE. Open new file in IDLE, encode the above program and execute.
 
 ```python
-from magnetocaloric import mcepy  
 
-print (mcepy.mce(Total_Number_Of_Temperature, Total_Number_Of_Applied_Magnetic_Field))
+import magnetocaloric.mcepy as mc
+
+print(mc.mce(a, b))
 
 ```
+Here, 'a' is the total number of temperature and 'b' is the total number of applied magnetic field.
