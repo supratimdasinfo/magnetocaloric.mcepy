@@ -15,7 +15,7 @@ def mce(n, one_n):
     T = Temperature_vals
     H = External_Fields
 
-    
+    print("\n   i.e. Please add one extra magnetic field in your excel sheet with null \n   magnetization values (M) to get accurate output.\n\n   e.g. If the value of Hmax = 50000, then add Hmax + ∆H \n\n")
     datasample = [['H0', 'M (T0,H0)', 'M (T1,H0)', '...'],['H1', 'M (T0,H1)', 'M (T1,H1)', '...'],['H2', 'M (T0,H2)', 'M (T1,H2)', '...'],['...','...','...','...']]
     tableprint.table(datasample, ['Magnetic Field (H)', 'Magnetization(M) at T0','Magnetization(M) at T1','...'])
     yesorno = input("\n   have you arranged your data in your excel sheet according to the format given above ?  ")
@@ -80,7 +80,7 @@ def mce(n, one_n):
          
     Label_one = []
     for i in range(0, 11, 1):
-         Label_one.append(str((i*Multiplier*((10)**(-4)))))
+         Label_one.append(round((i*Multiplier*((10)**(-4))),2))
          
     six_entropy_change_con = []
     six_entropy_change_con.append(temperatures)
@@ -98,7 +98,7 @@ def mce(n, one_n):
          six_entropy_change_con.append(four_entropy_change_con)
          
     colour = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'tab:orange', 'tab:gray', 'tab:brown', 'tab:blue']
-        
+    marker = ['^', 'o', 'v', '*', '<', 'p', '>', 'h', 'P', 'H', 'X']    
 
     workbook = xlsxwriter.Workbook(path_two)
     worksheet = workbook.add_worksheet()
@@ -139,37 +139,37 @@ def mce(n, one_n):
     for k in range (0, n, 1):
          plt.plot(H_plot_final, one_M_plot_final[k], linestyle='solid', marker = 'P', label = T[n-(k+1)])
     plt.legend(loc='upper right')     
-    plt.xlabel("Magnetic Field(H)")
-    plt.ylabel("Magnetization(M)")
-    plt.title("Magnetization vs Applied Field")
+    plt.xlabel("Magnetic Field(H)", fontname = "Georgia")
+    plt.ylabel("Magnetization(M)", fontname = "Georgia")
+    plt.title("Magnetization vs Applied Field", fontname = "Georgia")
     plt.show()
 
 
-    for k,l in zip(range (0, (one_n - 1), 10), range(0, 11, 1)):
-         plt.plot(temperatures, two_M_plot_final[k], linestyle='solid', marker = 'p', label = Label_one[l] )
+    for k,l in zip(range (0, (one_n - 1), (int(one_n/10))), range(0, 11, 1)):
+         plt.plot(temperatures, two_M_plot_final[k], linestyle='solid', marker = marker[l], label = Label_one[l] )
     plt.legend(loc='upper right')     
-    plt.xlabel("Temperature(T)")
-    plt.ylabel("Magnetization(M)")
-    plt.title("Magnetization vs Temperature")
+    plt.xlabel("Temperature(T)", fontname = "Georgia")
+    plt.ylabel("Magnetization(M)", fontname = "Georgia")
+    plt.title("Magnetization vs Temperature", fontname = "Georgia")
     plt.show()
 
 
     for q in range(0, 11, 1):
-         plt.plot((temperatures), (five_entropy_change_con[q]), linestyle='solid', color = colour[q], marker = 'o')
-         plt.plot((temperatures)[0], ((five_entropy_change_con[q])[0]), linestyle='solid',label= Label_one[q], color = colour[q], marker = 'o')
+         plt.plot((temperatures), (five_entropy_change_con[q]), linestyle='solid', color = colour[q], marker = marker[q])
+         plt.plot((temperatures)[0], ((five_entropy_change_con[q])[0]), linestyle='solid',label= Label_one[q], color = colour[q], marker = marker[q])
          plt.legend(loc='upper right')   
-    plt.xlabel("Temperature(T)")
-    plt.ylabel("-∇Sm")
-    plt.title("Change in Entropy vs Temperature")
+    plt.xlabel("Temperature(T)", fontname = "Georgia")
+    plt.ylabel("-∆Sm", fontname = "Georgia")
+    plt.title("Change in Entropy vs Temperature", fontname = "Georgia")
     plt.show()
         
 
     for i in range (0, n, 1):
         plt.plot(one_H_by_M_con[i], M_sqr[i], linestyle='solid',marker = 'p', label = T[n-(i+1)])
     plt.legend(loc='upper right')     
-    plt.xlabel("H/M (Applied Field / Magnetization)")
-    plt.ylabel("M^2 (Magnetization Square)")
-    plt.title("M^2 vs H/M")
+    plt.xlabel("H/M (Applied Field / Magnetization)", fontname = "Georgia")
+    plt.ylabel("M^2 (Magnetization Square)", fontname = "Georgia")
+    plt.title("M^2 vs H/M", fontname = "Georgia")
     plt.show()
 
     for i in range (0,2*n,1):
@@ -197,3 +197,5 @@ def mce(n, one_n):
          worksheet.write_column(row, col, data)
     workbook.close()
     return ("\n   please check your excel files, data has been successfully saved in those files")
+ 
+
