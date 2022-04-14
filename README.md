@@ -21,6 +21,7 @@ pip install magnetocaloric==0.2.2
 
 ![](https://github.com/supratimdasinfo/Magnetocaloric-Effect/blob/main/Screenshot%20(229).png?raw=True)
 
+![](https://github.com/supratimdasinfo/Magnetocaloric-Effect/blob/main/Screenshot%20(232).png?raw=True)
 
 - Create two new files (file extension xlsx) to hold the results obtained after the calculation and definitely make them closed, other wise XlsxWriter will not get access.
 
