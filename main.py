@@ -136,41 +136,41 @@ def mce(n, one_n):
          two_M_plot_final.append(two_M_plot)
                    
 
-    for k in range (0, n, 1):
-         plt.plot(H_plot_final, one_M_plot_final[k], linestyle='solid', marker = 'P', label = T[n-(k+1)])
-    plt.legend(loc='upper right')     
-    plt.xlabel("Magnetic Field(H)", fontname = "Georgia")
-    plt.ylabel("Magnetization(M)", fontname = "Georgia")
-    plt.title("Magnetization vs Applied Field", fontname = "Georgia")
-    plt.show()
+for k in range (0, n, 1):
+     plt.plot(H_plot_final, one_M_plot_final[k], linestyle='solid', marker = 'o', label = T[n-(k+1)], linewidth=3.0)
+plt.legend(loc='upper left',frameon = False, ncol= 3)     
+plt.xlabel("Magnetic Field(H)", fontname = "Georgia")
+plt.ylabel("Magnetization(M)", fontname = "Georgia")
+plt.title("Magnetization vs Applied Field", fontname = "Georgia")
+plt.show()
 
 
-    for k,l in zip(range (0, (one_n - 1), (int(one_n/10))), range(0, 11, 1)):
-         plt.plot(temperatures, two_M_plot_final[k], linestyle='solid', marker = marker[l], label = Label_one[l] )
-    plt.legend(loc='upper right')     
-    plt.xlabel("Temperature(T)", fontname = "Georgia")
-    plt.ylabel("Magnetization(M)", fontname = "Georgia")
-    plt.title("Magnetization vs Temperature", fontname = "Georgia")
-    plt.show()
+for k,l in zip(range (0, (one_n - 1), (int(one_n/10))), range(0, 11, 1)):
+     plt.plot(temperatures, two_M_plot_final[k], linestyle='solid', marker = marker[l], label = Label_one[l], linewidth=3.0)
+plt.legend(loc='upper right',frameon = False, ncol= 2)     
+plt.xlabel("Temperature(T)", fontname = "Georgia")
+plt.ylabel("Magnetization(M)", fontname = "Georgia")
+plt.title("Magnetization vs Temperature", fontname = "Georgia")
+plt.show()
 
 
-    for q in range(0, 11, 1):
-         plt.plot((temperatures), (five_entropy_change_con[q]), linestyle='solid', color = colour[q], marker = marker[q])
-         plt.plot((temperatures)[0], ((five_entropy_change_con[q])[0]), linestyle='solid',label= Label_one[q], color = colour[q], marker = marker[q])
-         plt.legend(loc='upper right')   
-    plt.xlabel("Temperature(T)", fontname = "Georgia")
-    plt.ylabel("-∆Sm", fontname = "Georgia")
-    plt.title("Change in Entropy vs Temperature", fontname = "Georgia")
-    plt.show()
-        
+for q in range(0, 11, 1):
+     plt.plot((temperatures), (five_entropy_change_con[q]), linestyle='solid', color = colour[q], marker = marker[q], linewidth=3.0,)
+     plt.plot((temperatures)[0], ((five_entropy_change_con[q])[0]), linestyle='solid', label= Label_one[q], color = colour[q], marker = marker[q], linewidth=3.0)
+     plt.legend(loc='upper right',frameon = False, ncol= 2)   
+plt.xlabel("Temperature(T)", fontname = "Georgia")
+plt.ylabel("-∆Sm", fontname = "Georgia")
+plt.title("-∆Sm vs Temperature", fontname = "Georgia")
+plt.show()
+    
 
-    for i in range (0, n, 1):
-        plt.plot(one_H_by_M_con[i], M_sqr[i], linestyle='solid',marker = 'p', label = T[n-(i+1)])
-    plt.legend(loc='upper right')     
-    plt.xlabel("H/M (Applied Field / Magnetization)", fontname = "Georgia")
-    plt.ylabel("M^2 (Magnetization Square)", fontname = "Georgia")
-    plt.title("M^2 vs H/M", fontname = "Georgia")
-    plt.show()
+for i in range (0, n, 1):
+    plt.plot(one_H_by_M_con[i], M_sqr[i], linestyle='solid',marker = 'o', label = T[n-(i+1)], linewidth=3.0)
+plt.legend(loc='upper right',frameon = False, ncol= 2)     
+plt.xlabel("H/M (Applied Field / Magnetization)", fontname = "Georgia")
+plt.ylabel("M^2 (Magnetization Square)", fontname = "Georgia")
+plt.title("M^2 vs H/M", fontname = "Georgia")
+plt.show()
 
     for i in range (0,2*n,1):
         lo = 2*i+1
