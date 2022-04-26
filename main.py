@@ -18,8 +18,8 @@ def mce(n, one_n):
     print("\n   i.e. Please add one extra magnetic field (Hmax + ∆H) in your excel sheet with null \n   magnetization values (M) to get accurate output.\n\n \n\n")
     datasample = [['H0', 'M (T0,H0)', 'M (T1,H0)', '...'],['H1', 'M (T0,H1)', 'M (T1,H1)', '...'],['H2', 'M (T0,H2)', 'M (T1,H2)', '...'],['...','...','...','...']]
     tableprint.table(datasample, ['Magnetic Field (H)', 'Magnetization(M) at T0','Magnetization(M) at T1','...'])
-    yesorno = input("\n   have you arranged your data in your excel sheet according to the format given above ?  ")
-
+    yesorno = input("\n   have you arranged your data in your excel sheet according to the format given above (YES/NO)?  ")
+    samp_name = input("\n   enter the sample nomenclature  : ")
     if yesorno == 'YES' :
          print ("\n")
     elif yesorno == 'yes' :
@@ -29,13 +29,13 @@ def mce(n, one_n):
          exit()
 
     Path_one = input("\n   enter the excel file directory of M(H) data(example : C:\File name.xlsx): ")
-    path_two = input("\n   enter the file directory (example : C:\File name.xlsx), where entropy change values at those specific temperatures will be extracted : ")
-    path_three = input("\n   enter the file directory (example : C:\File name.xlsx), where the M^2 vs H/M data will be extracted : ")
+    path_two = input("   enter the file directory (example : C:\File name.xlsx), where the -∆Sm(T) data will be stored : ")
+    path_three = input("   enter the file directory (example : C:\File name.xlsx), where the arrott plot data will be stored : ")
     
     n = int(n)
     one_n = int(one_n)
     two_n = int(n * one_n)
-    print("\n\n   ok...now, enter", num2words(n), "temperature values\n")
+    print("\n\n   now, enter", num2words(n), "temperature values\n")
 
     for b in range(0, (n)):
          Temperature_val = input("   Enter the Temperature Value : ")
@@ -182,7 +182,7 @@ def mce(n, one_n):
         x_index = 2*i + 1
         M_sqr_vs_H_by_M.insert(x_index, M_sqr_tolist[i])
 
-    for i in range (0,2*n,1):
+    for i in range (0,2*n,1):  
         M_sqr_vs_H_by_M[i].insert(0, T[i])
         M_sqr_vs_H_by_M[i].insert(1, ' ')
         if i%2 == 0 :
@@ -196,5 +196,43 @@ def mce(n, one_n):
     for col, data in enumerate(M_sqr_vs_H_by_M):
          worksheet.write_column(row, col, data)
     workbook.close()
+
+    RCP_con = []
+    for j in range(1, 12, 1):
+        T_left = 0
+        T_right = float(six_entropy_change_con[0][n-2])
+        del_S_peak = np.max(six_entropy_change_con[j])
+        half_max = float(del_S_peak/2)
+        for i in range(0, n-2, 1):
+            i_th = six_entropy_change_con[j][i]
+            i_th_plus_one = six_entropy_change_con[j][i+1]
+            if ((half_max >= i_th) and (half_max <= i_th_plus_one)):
+                T_i_th = six_entropy_change_con[0][i]
+                T_i_th_plus_one = six_entropy_change_con[0][i+1]
+                del_S_dif = float(i_th_plus_one - i_th)
+                T_dif = float(T_i_th_plus_one - T_i_th)
+                dif_bet_ith_half = half_max - i_th
+                T_left = float((T_dif/del_S_dif) * dif_bet_ith_half) + T_i_th
+            elif((half_max <= i_th) and (half_max >= i_th_plus_one)):
+                T_i_th = six_entropy_change_con[0][i]
+                T_i_th_plus_one = six_entropy_change_con[0][i+1]
+                del_S_dif = float(i_th - i_th_plus_one)
+                T_dif = float(T_i_th_plus_one - T_i_th)
+                dif_bet_ith_half = i_th - half_max
+                T_right = float((T_dif/del_S_dif) * dif_bet_ith_half) + T_i_th
+
+        T_FWHM = T_right - T_left
+        RCP = T_FWHM * del_S_peak
+        RCP_con.append(float(round(RCP,4)))
+
+    plt.plot(Label_one, RCP_con, linestyle='solid', marker = 'h', label = samp_name, color = 'g')
+    print("\n\n\n   Relative cooling power(RCP) of ", samp_name, "\n")
+    for i in range (0, len(RCP_con)):
+        print ("   RCP : ", RCP_con[i], "at ∆H : ", Label_one[i])
+    plt.xlabel("Magnetic Field(H)", fontname = "Georgia")
+    plt.ylabel("RCP", fontname = "Georgia")
+    plt.title("RCP vs H", fontname = "Georgia")
+    plt.legend(loc='upper left',frameon = False, ncol= 2) 
+    plt.show()
     return ("\n   please check your excel files, data has been successfully saved in those files")
  
