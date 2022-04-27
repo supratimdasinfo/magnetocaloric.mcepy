@@ -32,7 +32,7 @@ def mce(n, one_n):
     else:
          print ("\n    please arrange your data according to the format given above.  ")
          exit()
-    samp_name = input("\n   enter the sample nomenclature  : ")     
+    samp_name = input("\n    enter the sample nomenclature  : ")     
     Path_one = input("\n    enter the excel file directory of M(H) data(example : C:\File name.xlsx): ")
     path_two = input("    enter the file directory (example : C:\File name.xlsx), where the -∆Sm(T) data will be stored : ")
     path_three = input("    enter the file directory (example : C:\File name.xlsx), where the arrott plot data will be stored : ")
