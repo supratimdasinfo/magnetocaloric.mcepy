@@ -23,7 +23,7 @@ def mce(n, one_n):
     print("\n    i.e. Please add one extra magnetic field (Hmax + ∆H) in your excel sheet with null \n   magnetization values (M) to get accurate output.\n\n \n\n")
     datasample = [['H0', 'M (T0,H0)', 'M (T1,H0)', '...'],['H1', 'M (T0,H1)', 'M (T1,H1)', '...'],['H2', 'M (T0,H2)', 'M (T1,H2)', '...'],['...','...','...','...']]
     tableprint.table(datasample, ['Magnetic Field (H)', 'Magnetization(M) at T0','Magnetization(M) at T1','...'])
-    yesorno = input("\n     have you arranged your data in your excel sheet according to the format given above (YES/NO)?  ")
+    yesorno = input("\n    have you arranged your data in your excel sheet according to the format given above (YES/NO)?  ")
     
     if yesorno == 'YES' :
          print ("\n")
