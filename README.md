@@ -1,4 +1,4 @@
-# magnetocaloric 1.0.3
+# magnetocaloric 1.0.5
 #### Developed by Supratim Das
 ![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)
 
@@ -7,6 +7,7 @@ Effective approach to determine magnetocaloric performance of any magnetic mater
 ## What's New
 - Relative cooling power (RCP) can be calculated.
 - A method to visualize 'Full Width Of Half Maxima' has been employed.
+- Another methods to illustrate Tricritical mean field model, 3D Heisenberg model and 3D Ising model have also been employed.
 
 
 ## Examples of How To Use
@@ -17,7 +18,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install magneto
 
 ```bash
 
- pip install magnetocaloric==1.0.3
+ pip install magnetocaloric==1.0.5
 
 ```
 ### 2. Manage Excel Spreadsheet
