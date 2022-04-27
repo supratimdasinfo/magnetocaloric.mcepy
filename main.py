@@ -137,7 +137,7 @@ def mce(n, one_n):
                    
 
     for k in range (0, n, 1):
-         plt.plot(H_plot_final, one_M_plot_final[k], linestyle='solid', marker = 'o', label = T[n-(k+1)], linewidth=3.0)
+         plt.plot(H_plot_final, one_M_plot_final[k], linestyle='solid', label = T[n-(k+1)], linewidth=3.0)
     plt.legend(loc='upper left',frameon = False, ncol= 3)     
     plt.xlabel("Magnetic Field(H)", fontname = "Georgia")
     plt.ylabel("Magnetization(M)", fontname = "Georgia")
@@ -165,7 +165,7 @@ def mce(n, one_n):
         
 
     for i in range (0, n, 1):
-        plt.plot(one_H_by_M_con[i], M_sqr[i], linestyle='solid',marker = 'o', label = T[n-(i+1)], linewidth=3.0)
+        plt.plot(one_H_by_M_con[i], M_sqr[i], linestyle='solid', label = T[n-(i+1)], linewidth=3.0)
     plt.legend(loc='upper right',frameon = False, ncol= 2)     
     plt.xlabel("H/M (Applied Field / Magnetization)", fontname = "Georgia")
     plt.ylabel("M^2 (Magnetization Square)", fontname = "Georgia")
@@ -197,6 +197,7 @@ def mce(n, one_n):
          worksheet.write_column(row, col, data)
     workbook.close()
 
+    T_FWHM_con = []
     RCP_con = []
     for j in range(1, 12, 1):
         T_left = 0
@@ -223,16 +224,26 @@ def mce(n, one_n):
 
         T_FWHM = T_right - T_left
         RCP = T_FWHM * del_S_peak
+        T_FWHM_con.append(float(round(T_FWHM,4)))
         RCP_con.append(float(round(RCP,4)))
 
-    plt.plot(Label_one, RCP_con, linestyle='solid', marker = 'h', label = samp_name, color = 'g')
-    print("\n\n\n   Relative cooling power(RCP) of ", samp_name, "\n")
-    for i in range (0, len(RCP_con)):
-        print ("   RCP : ", RCP_con[i], "at ∆H : ", Label_one[i])
-    plt.xlabel("Magnetic Field(H)", fontname = "Georgia")
-    plt.ylabel("RCP", fontname = "Georgia")
-    plt.title("RCP vs H", fontname = "Georgia")
-    plt.legend(loc='upper left',frameon = False, ncol= 2) 
+    samp_name_plus_RCP = "RCP (" + samp_name + ") :: max val : " + str(np.max(RCP_con))
+    samp_name_plus_T_FWHM = "T_FWHM (" + samp_name + ") :: max width : " + str(np.max(T_FWHM_con))
+
+    fig,ax1 = plt.subplots()
+    ax1.set_xlabel("Magnetic Field(H)", fontname = "Georgia")
+    ax1.set_ylabel("RCP", fontname = "Georgia")
+    ax1.plot(Label_one, RCP_con, linestyle='solid', marker = 'h', label = samp_name_plus_RCP, color = 'b')
+    ax1.legend(loc='upper left',frameon = False, ncol= 2)
+    ax1.tick_params(axis='y')
+
+    ax2 = ax1.twinx()
+    ax2.set_ylabel("T_FWHM", fontname = "Georgia")
+    ax2.plot(Label_one, T_FWHM_con, linestyle='solid', marker = 'H', label = samp_name_plus_T_FWHM, color = 'r')
+    ax2.legend(loc='lower right',frameon = False, ncol= 2)
+    ax2.tick_params(axis='y')
+
+    plt.title("RCP/T_FWHM vs H", fontname = "Georgia") 
     plt.show()
     return ("\n   please check your excel files, data has been successfully saved in those files")
  
