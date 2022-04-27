@@ -5,6 +5,11 @@ from random import randint
 import xlrd
 import matplotlib.pyplot as plt
 from num2words import num2words
+import sys
+
+if not sys.warnoptions:
+    import warnings
+    warnings.simplefilter("ignore")
 
 def mce(n, one_n):
     
@@ -15,30 +20,30 @@ def mce(n, one_n):
     T = Temperature_vals
     H = External_Fields
 
-    print("\n   i.e. Please add one extra magnetic field (Hmax + ∆H) in your excel sheet with null \n   magnetization values (M) to get accurate output.\n\n \n\n")
+    print("\n    i.e. Please add one extra magnetic field (Hmax + ∆H) in your excel sheet with null \n   magnetization values (M) to get accurate output.\n\n \n\n")
     datasample = [['H0', 'M (T0,H0)', 'M (T1,H0)', '...'],['H1', 'M (T0,H1)', 'M (T1,H1)', '...'],['H2', 'M (T0,H2)', 'M (T1,H2)', '...'],['...','...','...','...']]
     tableprint.table(datasample, ['Magnetic Field (H)', 'Magnetization(M) at T0','Magnetization(M) at T1','...'])
-    yesorno = input("\n   have you arranged your data in your excel sheet according to the format given above (YES/NO)?  ")
-    samp_name = input("\n   enter the sample nomenclature  : ")
+    yesorno = input("\n     have you arranged your data in your excel sheet according to the format given above (YES/NO)?  ")
+    
     if yesorno == 'YES' :
          print ("\n")
     elif yesorno == 'yes' :
          print ("\n")
     else:
-         print ("\n   please arrange your data according to the format given above.  ")
+         print ("\n    please arrange your data according to the format given above.  ")
          exit()
-
-    Path_one = input("\n   enter the excel file directory of M(H) data(example : C:\File name.xlsx): ")
-    path_two = input("   enter the file directory (example : C:\File name.xlsx), where the -∆Sm(T) data will be stored : ")
-    path_three = input("   enter the file directory (example : C:\File name.xlsx), where the arrott plot data will be stored : ")
+    samp_name = input("\n   enter the sample nomenclature  : ")     
+    Path_one = input("\n    enter the excel file directory of M(H) data(example : C:\File name.xlsx): ")
+    path_two = input("    enter the file directory (example : C:\File name.xlsx), where the -∆Sm(T) data will be stored : ")
+    path_three = input("    enter the file directory (example : C:\File name.xlsx), where the arrott plot data will be stored : ")
     
     n = int(n)
     one_n = int(one_n)
     two_n = int(n * one_n)
-    print("\n\n   now, enter", num2words(n), "temperature values\n")
+    print("\n\n    now, enter", num2words(n), "temperature values\n")
 
     for b in range(0, (n)):
-         Temperature_val = input("   Enter the Temperature Value : ")
+         Temperature_val = input("    enter the temperature value : ")
          T.append(Temperature_val)
          
     book = xlrd.open_workbook(Path_one)
@@ -172,6 +177,56 @@ def mce(n, one_n):
     plt.title("M^2 vs H/M", fontname = "Georgia")
     plt.show()
 
+
+
+
+
+    M_pow_MFT = np.power(one_M_plot_final, 2)
+    H_by_M_pow_MFT = np.power(one_H_by_M_con, 1)
+
+    M_pow_TMFT = np.power(one_M_plot_final, 4)
+    H_by_M_pow_TMFT = np.power(one_H_by_M_con, 1)
+
+    M_pow_3DH = np.power(one_M_plot_final, (1/0.365))
+    H_by_M_pow_3DH = np.power(one_H_by_M_con, (1/1.336))
+
+    M_pow_3DI = np.power(one_M_plot_final, (1/0.325))
+    H_by_M_pow_3DI = np.power(one_H_by_M_con,(1/1.24))
+
+
+    plt.subplot(2,2,1)
+    for i in range (0, n, 1):
+        plt.plot(H_by_M_pow_MFT[i], M_pow_MFT[i], linestyle='solid', linewidth=3.0)     
+    plt.xlabel("(H/M)^(1/γ)", fontname = "Georgia")
+    plt.ylabel("M^(1/β)", fontname = "Georgia")
+    plt.title("Arrott plot 01 (β:0.5; γ:1)" , fontname = "Georgia")
+
+    plt.subplot(2,2,2)
+    for i in range (0, n, 1):
+        plt.plot(H_by_M_pow_TMFT[i], M_pow_TMFT[i], linestyle='solid', linewidth=3.0)     
+    plt.xlabel("(H/M)^(1/γ)", fontname = "Georgia")
+    plt.ylabel("M^(1/β)", fontname = "Georgia")
+    plt.title("Arrott plot 02 (β:0.25; γ:1)" , fontname = "Georgia")
+
+    plt.subplot(2,2,3)
+    for i in range (0, n, 1):
+        plt.plot(H_by_M_pow_3DH[i], M_pow_3DH[i], linestyle='solid', linewidth=3.0)     
+    plt.xlabel("(H/M)^(1/γ)", fontname = "Georgia")
+    plt.ylabel("M^(1/β)", fontname = "Georgia")
+    plt.title("Arrott plot 03 (β:0.365; γ:1.336)" , fontname = "Georgia")
+
+    plt.subplot(2,2,4)
+    for i in range (0, n, 1):
+        plt.plot(H_by_M_pow_3DI[i], M_pow_3DI[i], linestyle='solid', linewidth=3.0)     
+    plt.xlabel("(H/M)^(1/γ)", fontname = "Georgia")
+    plt.ylabel("M^(1/β)", fontname = "Georgia")
+    plt.title("Arrott plot 04 (β:0.325; γ:1.24)" , fontname = "Georgia")
+
+    plt.tight_layout()
+    plt.show()
+
+
+
     for i in range (0,2*n,1):
         lo = 2*i+1
         T.insert(lo, '   ')       
@@ -245,5 +300,5 @@ def mce(n, one_n):
 
     plt.title("RCP/T_FWHM vs H", fontname = "Georgia") 
     plt.show()
-    return ("\n   please check your excel files, data has been successfully saved in those files")
+    return ("\n    please check your excel files, data has been successfully saved in those files")
  
