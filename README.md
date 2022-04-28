@@ -1,4 +1,4 @@
-# magnetocaloric 1.1.2
+# magnetocaloric 1.1.3
 #### Developed by Supratim Das
 ![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)
 
@@ -18,7 +18,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install magneto
 
 ```bash
 
- pip install magnetocaloric==1.1.2
+ pip install magnetocaloric==1.1.3
 
 ```
 ### 2. Manage Excel Spreadsheet
