@@ -150,7 +150,7 @@ def mce(n, one_n):
     plt.xlabel("Magnetic Field(H)", fontname = "Georgia")
     plt.ylabel("Magnetization(M)", fontname = "Georgia")
     plt.title("Magnetization vs Applied Field", fontname = "Georgia")
-    plt.grid(axis = 'y')
+    
     plt.show()
 
 
@@ -160,7 +160,7 @@ def mce(n, one_n):
     plt.xlabel("Temperature(T)", fontname = "Georgia")
     plt.ylabel("Magnetization(M)", fontname = "Georgia")
     plt.title("Magnetization vs Temperature", fontname = "Georgia")
-    plt.grid(axis = 'y')
+    
     plt.show()
 
 
@@ -171,7 +171,7 @@ def mce(n, one_n):
     plt.xlabel("Temperature(T)", fontname = "Georgia")
     plt.ylabel("-∆Sm", fontname = "Georgia")
     plt.title("-∆Sm vs Temperature", fontname = "Georgia")
-    plt.grid(axis = 'y')
+    
     plt.show()
         
 
@@ -181,7 +181,7 @@ def mce(n, one_n):
     plt.xlabel("H/M (Applied Field / Magnetization)", fontname = "Georgia")
     plt.ylabel("M^2 (Magnetization Square)", fontname = "Georgia")
     plt.title("M^2 vs H/M", fontname = "Georgia")
-    plt.grid(axis = 'y')
+    
     plt.show()
 
 
@@ -207,7 +207,7 @@ def mce(n, one_n):
     plt.xlabel("(H/M)^(1/γ)", fontname = "Georgia")
     plt.ylabel("M^(1/β)", fontname = "Georgia")
     plt.title("Arrott plot 01 (β:0.5; γ:1)" , fontname = "Georgia")
-    plt.grid(axis = 'y')
+    
 
     plt.subplot(2,2,2)
     for i in range (0, n, 1):
@@ -215,7 +215,7 @@ def mce(n, one_n):
     plt.xlabel("(H/M)^(1/γ)", fontname = "Georgia")
     plt.ylabel("M^(1/β)", fontname = "Georgia")
     plt.title("Arrott plot 02 (β:0.25; γ:1)" , fontname = "Georgia")
-    plt.grid(axis = 'y')
+    
 
     plt.subplot(2,2,3)
     for i in range (0, n, 1):
@@ -223,7 +223,7 @@ def mce(n, one_n):
     plt.xlabel("(H/M)^(1/γ)", fontname = "Georgia")
     plt.ylabel("M^(1/β)", fontname = "Georgia")
     plt.title("Arrott plot 03 (β:0.365; γ:1.336)" , fontname = "Georgia")
-    plt.grid(axis = 'y')
+    
 
     plt.subplot(2,2,4)
     for i in range (0, n, 1):
@@ -231,7 +231,7 @@ def mce(n, one_n):
     plt.xlabel("(H/M)^(1/γ)", fontname = "Georgia")
     plt.ylabel("M^(1/β)", fontname = "Georgia")
     plt.title("Arrott plot 04 (β:0.325; γ:1.24)" , fontname = "Georgia")
-    plt.grid(axis = 'y')
+    
 
     plt.tight_layout()
     plt.show()
@@ -310,7 +310,7 @@ def mce(n, one_n):
     ax2.tick_params(axis='y')
 
     plt.title("RCP/T_FWHM vs H", fontname = "Georgia") 
-    plt.grid(axis = 'y')
+    
     plt.show()
     return ("\n    check the excel spreadsheets, data has been successfully saved.")
  
