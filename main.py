@@ -6,10 +6,13 @@ import xlrd
 import matplotlib.pyplot as plt
 from num2words import num2words
 import sys
+import itertools
 
 if not sys.warnoptions:
     import warnings
     warnings.simplefilter("ignore")
+
+plt.rcParams.update({'font.size':7})
 
 def mce(n, one_n):
     
@@ -103,7 +106,7 @@ def mce(n, one_n):
          six_entropy_change_con.append(four_entropy_change_con)
          
     colour = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'tab:orange', 'tab:gray', 'tab:brown', 'tab:blue']
-    marker = ['^', 'o', 'v', '*', '<', 'p', '>', 'h', 'P', 'H', 'X']    
+    marker = itertools.cycle(['^', 'o', 'v', '*', '<', 'p', '>', 'h', 'P', 'H', 'X'])    
 
     workbook = xlsxwriter.Workbook(path_two)
     worksheet = workbook.add_worksheet()
@@ -142,7 +145,7 @@ def mce(n, one_n):
                    
 
     for k in range (0, n, 1):
-         plt.plot(H_plot_final, one_M_plot_final[k], linestyle='solid', label = T[n-(k+1)], linewidth=3.0)
+         plt.plot(H_plot_final, one_M_plot_final[k], linestyle='solid', label = T[n-(k+1)], marker = next(marker), markersize =7, linewidth=2)
     plt.legend(loc='upper left',frameon = False, ncol= 3)     
     plt.xlabel("Magnetic Field(H)", fontname = "Georgia")
     plt.ylabel("Magnetization(M)", fontname = "Georgia")
@@ -151,7 +154,7 @@ def mce(n, one_n):
 
 
     for k,l in zip(range (0, (one_n - 1), (int(one_n/10))), range(0, 11, 1)):
-         plt.plot(temperatures, two_M_plot_final[k], linestyle='solid', marker = marker[l], label = Label_one[l], linewidth=3.0)
+         plt.plot(temperatures, two_M_plot_final[k], linestyle='solid', label = Label_one[l], marker = next(marker), markersize =7, linewidth=2)
     plt.legend(loc='upper right',frameon = False, ncol= 2)     
     plt.xlabel("Temperature(T)", fontname = "Georgia")
     plt.ylabel("Magnetization(M)", fontname = "Georgia")
@@ -160,8 +163,8 @@ def mce(n, one_n):
 
 
     for q in range(0, 11, 1):
-         plt.plot((temperatures), (five_entropy_change_con[q]), linestyle='solid', color = colour[q], marker = marker[q], linewidth=3.0,)
-         plt.plot((temperatures)[0], ((five_entropy_change_con[q])[0]), linestyle='solid', label= Label_one[q], color = colour[q], marker = marker[q], linewidth=3.0)
+         plt.plot((temperatures), (five_entropy_change_con[q]), linestyle='solid', color = colour[q], marker = next(marker), markersize =7, linewidth=2)
+         plt.plot((temperatures)[0], ((five_entropy_change_con[q])[0]), linestyle='solid', label= Label_one[q], color = colour[q], marker = next(marker), markersize =7, linewidth=2)
          plt.legend(loc='upper right',frameon = False, ncol= 2)   
     plt.xlabel("Temperature(T)", fontname = "Georgia")
     plt.ylabel("-∆Sm", fontname = "Georgia")
@@ -170,7 +173,7 @@ def mce(n, one_n):
         
 
     for i in range (0, n, 1):
-        plt.plot(one_H_by_M_con[i], M_sqr[i], linestyle='solid', label = T[n-(i+1)], linewidth=3.0)
+        plt.plot(one_H_by_M_con[i], M_sqr[i], linestyle='solid', label = T[n-(i+1)], marker = next(marker), markersize =7, linewidth=2)
     plt.legend(loc='upper right',frameon = False, ncol= 2)     
     plt.xlabel("H/M (Applied Field / Magnetization)", fontname = "Georgia")
     plt.ylabel("M^2 (Magnetization Square)", fontname = "Georgia")
@@ -196,28 +199,28 @@ def mce(n, one_n):
 
     plt.subplot(2,2,1)
     for i in range (0, n, 1):
-        plt.plot(H_by_M_pow_MFT[i], M_pow_MFT[i], linestyle='solid', linewidth=3.0)     
+        plt.plot(H_by_M_pow_MFT[i], M_pow_MFT[i], linestyle='solid', linewidth=2)     
     plt.xlabel("(H/M)^(1/γ)", fontname = "Georgia")
     plt.ylabel("M^(1/β)", fontname = "Georgia")
     plt.title("Arrott plot 01 (β:0.5; γ:1)" , fontname = "Georgia")
 
     plt.subplot(2,2,2)
     for i in range (0, n, 1):
-        plt.plot(H_by_M_pow_TMFT[i], M_pow_TMFT[i], linestyle='solid', linewidth=3.0)     
+        plt.plot(H_by_M_pow_TMFT[i], M_pow_TMFT[i], linestyle='solid', linewidth=2)     
     plt.xlabel("(H/M)^(1/γ)", fontname = "Georgia")
     plt.ylabel("M^(1/β)", fontname = "Georgia")
     plt.title("Arrott plot 02 (β:0.25; γ:1)" , fontname = "Georgia")
 
     plt.subplot(2,2,3)
     for i in range (0, n, 1):
-        plt.plot(H_by_M_pow_3DH[i], M_pow_3DH[i], linestyle='solid', linewidth=3.0)     
+        plt.plot(H_by_M_pow_3DH[i], M_pow_3DH[i], linestyle='solid', linewidth=2)     
     plt.xlabel("(H/M)^(1/γ)", fontname = "Georgia")
     plt.ylabel("M^(1/β)", fontname = "Georgia")
     plt.title("Arrott plot 03 (β:0.365; γ:1.336)" , fontname = "Georgia")
 
     plt.subplot(2,2,4)
     for i in range (0, n, 1):
-        plt.plot(H_by_M_pow_3DI[i], M_pow_3DI[i], linestyle='solid', linewidth=3.0)     
+        plt.plot(H_by_M_pow_3DI[i], M_pow_3DI[i], linestyle='solid', linewidth=2)     
     plt.xlabel("(H/M)^(1/γ)", fontname = "Georgia")
     plt.ylabel("M^(1/β)", fontname = "Georgia")
     plt.title("Arrott plot 04 (β:0.325; γ:1.24)" , fontname = "Georgia")
@@ -288,17 +291,17 @@ def mce(n, one_n):
     fig,ax1 = plt.subplots()
     ax1.set_xlabel("Magnetic Field(H)", fontname = "Georgia")
     ax1.set_ylabel("RCP", fontname = "Georgia")
-    ax1.plot(Label_one, RCP_con, linestyle='solid', marker = 'h', label = samp_name_plus_RCP, color = 'b')
+    ax1.plot(Label_one, RCP_con, linestyle='solid', marker = 'h', label = samp_name_plus_RCP, color = 'b', linewidth=2)
     ax1.legend(loc='upper left',frameon = False, ncol= 2)
     ax1.tick_params(axis='y')
 
     ax2 = ax1.twinx()
     ax2.set_ylabel("T_FWHM", fontname = "Georgia")
-    ax2.plot(Label_one, T_FWHM_con, linestyle='solid', marker = 'H', label = samp_name_plus_T_FWHM, color = 'r')
+    ax2.plot(Label_one, T_FWHM_con, linestyle='solid', marker = 'H', label = samp_name_plus_T_FWHM, color = 'r', linewidth=2)
     ax2.legend(loc='lower right',frameon = False, ncol= 2)
     ax2.tick_params(axis='y')
 
     plt.title("RCP/T_FWHM vs H", fontname = "Georgia") 
     plt.show()
-    return ("\n    please check your excel files, data has been successfully saved in those files")
+    return ("\n    check the excel spreadsheets, data has been successfully saved in those files.")
  
