@@ -1,4 +1,4 @@
-# magnetocaloric 1.1.3
+# magnetocaloric 1.1.5
 #### Developed by Supratim Das
 ![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)
 
@@ -18,7 +18,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install magneto
 
 ```bash
 
- pip install magnetocaloric==1.1.3
+ pip install magnetocaloric==1.1.5
 
 ```
 ### 2. Manage Excel Spreadsheet
@@ -43,3 +43,7 @@ print(mc.mce(a, b))
 
 ```
 Here, 'a' is the total number of temperature and 'b' is the total number of applied magnetic field.
+
+## Caution
+
+- Before adding the Hmax + del_H value into the M(H) spreadsheet,  the figure of maximum magnetic field value must be like these (for an example, 50000 Oe / 5T, 45000Oe / 4.5T or any other like these), whether the value of the magnetic field is Tesla or Oersted , If Hmax(as an example, 49500 Oe / 4.95T, 44500Oe / 4.45T,  44000Oe / 4.4T or any other like these) is not a proper numbered figure, an error may occur. This caution is also applicable to the previous version as well.
