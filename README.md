@@ -2,7 +2,7 @@
 #### Developed by Supratim Das
 ![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)
 
-Effective approach to determine magnetocaloric performance of any magnetic material using python. From isotherm M(H) curves, using the Maxwell Relation the magnetocaloric performance of a material can be calculated with the help of this module.
+Effective approach to determine magnetocaloric performance of any magnetic material using python programming. From isotherm M(H) curves, using the Maxwell Relation the magnetocaloric performance of a material can be calculated with the help of this module.
 
 ## What's New
 - Relative cooling power (RCP) can be calculated.
