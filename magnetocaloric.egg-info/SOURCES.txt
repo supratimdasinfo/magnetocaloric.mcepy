@@ -1,0 +1,12 @@
+CHANGELOG.txt
+Licence.txt
+MANIFEST.in
+README.md
+setup.py
+magnetocaloric/__init__.py
+magnetocaloric/mcepy.py
+magnetocaloric.egg-info/PKG-INFO
+magnetocaloric.egg-info/SOURCES.txt
+magnetocaloric.egg-info/dependency_links.txt
+magnetocaloric.egg-info/requires.txt
+magnetocaloric.egg-info/top_level.txt
