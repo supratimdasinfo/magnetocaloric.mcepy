@@ -1,0 +1,6 @@
+scipy
+matplotlib
+xlrd==1.2.0
+openpyxl
+XlsxWriter
+numpy
