@@ -1,29 +1,26 @@
-from .interpol import interpol
-from .Msqr_HbyM import Msqr_HbyM
-from .data_reading import data_reading
-from .color_marker import color_marker
-from .data_plotting import data_plotting
-from .delSm_T import delSm_T
-from .delSm_Pivoting import delSm_Pivoting
-from .MH_Pivoting import MH_Pivoting
-from .arrott_plotting import arrott_plotting
-from .data_writing import data_writing
-from .T_FWHM_RCP import T_FWHM_RCP
-from .data_3d_plotting import mce_3d
-from .mag_sus import mag_sus
+from .mce_2D_Operations.data_2d_operation import mce
+from .mce_3D_Distribution.data_3d_plotting import mce_3d
+from .MH_Interpolation.interpol import interpol
 
 __all__ = [
     'interpol',
-    'Msqr_HbyM',
-    'data_reading',
-    'color_marker',
-    'data_plotting',
-    'delSm_T',
-    'delSm_Pivoting',
-    'MH_Pivoting',
-    'arrott_plotting',
-    'data_writing',
-    'T_FWHM_RCP',
-    'mce_3d',
-    'mag_sus'
+    'mce',
+    'mce_3d'
 ]
+# magnetocaloric package
+# Developed by Supratim Das
+# First release: November 5, 2021
+# Email: supratim0707@gmail.com
+
+# This file can include package-level metadata or comments.
+# It's executed when the package is imported.
+
+# Example metadata:
+
+__version__ = '1.6.6'  # Package version
+__author__ = 'Supratim Das' # Package author
+__email__ = 'supratim0707@gmail.com' #Get in Touch
+__description__ = 'Effective Approach To Calculate Magnetocaloric Effect Of Any Magnetic Material Using Python'  # Package description
+__license__ = 'MIT'  # License information
+__url__ = 'https://pypi.org/project/magnetocaloric/'  # URL to the package's repository
+__keywords__ = ['magnetism', 'thermodynamics', 'magnetocaloric']  # Keywords describing the package

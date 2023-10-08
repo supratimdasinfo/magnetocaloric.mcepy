@@ -14,7 +14,7 @@ classifiers = [
  
 setup(
   name='magnetocaloric',
-  version='1.6.1',
+  version='1.6.6',
   description='Effective Approach To Calculate Magnetocaloric Effect Of Any Magnetic Material Using Python',
   long_description=long_description,
   long_description_content_type="text/markdown",
@@ -25,6 +25,6 @@ setup(
   classifiers=classifiers,
   keywords=['magnetocaloric', 'mcepy', 'magnetic', 'programming', 'code', 'python','supratim', 'das', 'physics'],
   include_package_data=True, 
-  packages=['magnetocaloric'],
+  packages=find_packages(),
   install_requires=['scipy', 'matplotlib','xlrd==1.2.0', 'openpyxl', 'XlsxWriter','numpy'] 
 )

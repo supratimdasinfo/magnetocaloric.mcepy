@@ -50,8 +50,6 @@ This table provides a clear and concise overview of the 3D models and their corr
 
 - Intuitive Graphical User Interface: Simplifying Program Interaction. Experience seamless interaction with our PyQt5-powered UI. Standalone Python executable created using PyInstaller - no additional dependencies required.
 
-![GUIblank](https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/GUIv3b.PNG?raw=True)
-
 ![GUI](https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/GUIv3.PNG?raw=True)
 
 For the Python programming approach, follow the steps in the README.
@@ -61,7 +59,7 @@ For the Python programming approach, follow the steps in the README.
 You can easily install the **magnetocaloric** package using pip. Open your command-line interface and run the following command:
 
 ```shell
-pip install magnetocaloric==1.6.1
+pip install magnetocaloric==1.6.6
 ```
 
 This will install the specified version of the **magnetocaloric** package.
