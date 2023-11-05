@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
 Name: magnetocaloric
-Version: 1.6.6
+Version: 1.6.7
 Summary: Effective Approach To Calculate Magnetocaloric Effect Of Any Magnetic Material Using Python
 Home-page: https://github.com/supratimdasinfo/magnetocaloric.mcepy
 Author: Supratim Das
 Author-email: supratim0707@gmail.com
 License: MIT
-Keywords: magnetocaloric,mcepy,magnetic,programming,code,python,supratim,das,physics
+Keywords: magnetocaloric,software,mcepy,magnetic,programming,code,python,supratim,das,physics
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: Intended Audience :: Education
 Classifier: Operating System :: Microsoft :: Windows :: Windows 10
@@ -76,7 +76,7 @@ For the Python programming approach, follow the steps in the README.
 You can easily install the **magnetocaloric** package using pip. Open your command-line interface and run the following command:
 
 ```shell
-pip install magnetocaloric==1.6.6
+pip install magnetocaloric==1.6.7
 ```
 
 This will install the specified version of the **magnetocaloric** package.
@@ -98,21 +98,42 @@ Before using the **magnetocaloric** module, ensure that your Excel spreadsheet f
 
 To utilize the functions in **magnetocaloric**, follow these steps:
 
+one can structure the code in a class called mceanalysis to provide a unified interface for using the functions from the mcepy module :
+
 ```python
 from magnetocaloric import mcepy as mp
 
-mp.interpol(
+class mceanalysis:
+    def __init__(self, **kwargs):
+        self.kwargs = kwargs
+
+    def run_interpolation(self):
+        mp.interpol(**self.kwargs)
+        
+    def plot_mce_data(self):
+        mp.mce(**self.kwargs)
+
+    def plot_mce_3d_data(self):
+        mp.mce_3d(**self.kwargs)
+```
+To interpolate the Magnetic Moment data within a user-defined range of field values and a specified interval, the `interpol` function is available. This function offers flexibility by allowing users to set arguments such as `interpol_type`, `interpol_status` and `degree` for interpolation with minimal error. 
+
+```python
+interpolator = mceanalysis(
     path='D:\python\interpolation\mce_example.xlsx',
     sheet_index=1,
     T_row=1,
-    H_col='A',              
+    H_col='A',
     int_val=0,
     final_val=50000,
     interval=500,
     interpol_type='lin',
-    interpolation='None',
+    interpol_status='None',
     deg='None'
 )
+
+interpolator.run_interpolation()
+
 ```
 
 Explanation of the `interpol` function parameters:
@@ -136,32 +157,34 @@ You can perform polynomial interpolation with different degrees using the **magn
 
 
 ```python
-mp.interpol(
-    path='D:/python/interpolation/MCE_example.xlsx', 
+interpolator = mceanalysis(
+    path='D:/python/interpolation/MCE_example.xlsx',
     sheet_index=1,
     T_row=1,
-    H_col='A',           
+    H_col='A',
     int_val=0,
     final_val=50000,
     interval=500,
     interpol_type='poly',
-    interpolation='manual',
-    deg= 3  # To visualize with degree 2, change to deg= 2
+    interpol_status='manual',
+    deg=3  # To visualize with degree 2, change to deg=2
 )
+
+interpolator.run_interpolation()
+
 ```
 
 Here, you can compare the interpolation results for different degrees in the following image:
 
 ![](https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/interpolation.jpg?raw=True)
 
-Your explanation of how to use the `mce` function in **magnetocaloric** is informative, but let's format it to make it more visually appealing and easier to read. Here's the revised version:
 
 ### Using the `mce` Function for Customizable Graphs
 
 The **magnetocaloric** module provides a versatile `mce` function that allows you to plot various graphs with high customization. Here's how you can use it:
 
 ```python
-mp.mce(
+plotter = mceanalysis(
     samp_name="unknown",
     file_dir='D:\python\mce_example.xlsx',
     sheet_index=1,
@@ -173,10 +196,13 @@ mp.mce(
     T_unit='K',
     plot_legend='Yes',
     loc='upper right',
-    field='None', 
+    field='None',
     linear_threshold='None',
     save_data='allow'
 )
+
+plotter.plot_mce_data()
+
 ```
 
 Explanation of the function parameters:
@@ -199,22 +225,25 @@ The `field` and `linear_threshold` arguments are used for susceptibility graph p
 In this example, we will plot the susceptibility and inverse susceptibility by specifying the field and adjusting the linear threshold for a precise fit.
 
 ```python
-mp.mce(
+plotter = mceanalysis(
     samp_name="unknown",
-    file_dir='D:\python\mce_example.xlsx',
+    file_dir='D:/python/MCE calculation/MCE_example.xlsx',
     sheet_index=1,
     T_row=1,
     H_col='A',
-    g_name='sus_plot',
+    g_name='MH_plot',
     M_unit='emu/g',
     H_unit='Oe',
     T_unit='K',
     plot_legend='Yes',
     loc='upper right',
-    field='1020.40816', 
-    linear_threshold=0.99,
+    field='1020.40816',
+    linear_threshold=0.9995,
     save_data='allow'
 )
+
+plotter.plot_mce_data()
+
 ```
 
 In this case, we set the `linear_threshold` near unity to achieve the best linear fit in the higher temperature linear inverse susceptibility region (Curie-Weiss region).
@@ -226,18 +255,21 @@ In this case, we set the `linear_threshold` near unity to achieve the best linea
 The **magnetocaloric** module provides a powerful `mce_3d` function for visualizing data distribution in 3D. Here's how you can use it:
 
 ```python
-mp.mce_3d(
+plotter_3d = mceanalysis(
     path="D:/python/MCE calculation/MCE_example.xlsx",
     sheet_index=1,
     T_row=1,
     H_col='A',
-    g_name='dMdT_show',
+    g_name='dSm_show',
     M_unit='emu/g',
     H_unit='Oe',
     T_unit='K',
     dpi=1600,
     save_data='allow'
 )
+
+plotter_3d.plot_mce_3d_data()
+
 ```
 
 Explanation of the function parameters:

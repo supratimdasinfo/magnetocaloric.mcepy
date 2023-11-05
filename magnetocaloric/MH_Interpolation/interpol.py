@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def interpol(path, sheet_index, T_row, H_col, int_val, final_val, interval, interpol_type, interpolation, deg):
+def interpol(path, sheet_index, T_row, H_col, int_val, final_val, interval, interpol_type, interpol_mode, deg):
 
     def column_letter_to_number(column_letter):
         column_number = 0
@@ -67,7 +67,7 @@ def interpol(path, sheet_index, T_row, H_col, int_val, final_val, interval, inte
     if (interpol_type == 'poly'):
         best_degree_con = []
         # Define a range of polynomial degrees to test
-        if (interpolation == 'auto'):
+        if (interpol_mode == 'auto'):
             degrees_to_test = range(1, 50)  # Test degrees from 1 to 49   
             se_con_final = [] 
             for i in range(0, len(prov_data)):
