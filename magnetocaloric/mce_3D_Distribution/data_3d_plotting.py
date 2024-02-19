@@ -127,7 +127,7 @@ def mce_3d(path, sheet_index, T_row, H_col, g_name, M_unit, H_unit, T_unit, dpi,
     for i in range(0, len(H_lin) - 1):
         pri02_entropy_change_con = []
         for j in range(0, len(T_lin) - 1):
-            pri01_entropy_change = abs((float(M_res_HT[i][j + 1]) - float(M_res_HT[i][j])) / (float(T_lin[j + 1]) - float(T_lin[j]))) * del_H 
+            pri01_entropy_change = ((float(M_res_HT[i][j + 1]) - float(M_res_HT[i][j])) / (float(T_lin[j + 1]) - float(T_lin[j]))) * del_H 
 
             pri02_entropy_change_con.append(pri01_entropy_change)
 
@@ -139,7 +139,7 @@ def mce_3d(path, sheet_index, T_row, H_col, g_name, M_unit, H_unit, T_unit, dpi,
         
         pri02_dMdT_con = []
         for j in range(0, len(T_lin) - 1):
-            pri01_dMdT = abs((float(M_res_HT[i][j + 1]) - float(M_res_HT[i][j])) / (float(T_lin[j + 1]) - float(T_lin[j])))
+            pri01_dMdT = ((float(M_res_HT[i][j + 1]) - float(M_res_HT[i][j])) / (float(T_lin[j + 1]) - float(T_lin[j])))
 
             pri02_dMdT_con.append(pri01_dMdT)
 
@@ -166,7 +166,7 @@ def mce_3d(path, sheet_index, T_row, H_col, g_name, M_unit, H_unit, T_unit, dpi,
     for j in range(0, len(T_lin) - 1):
         pri02_dMdTH_con = []
         for i in range(0, len(H_lin) - 1):
-            pri01_dMdTH = abs(((float(dMdT_for_dMdTH[i + 1][j])) - (float(dMdT_for_dMdTH[i][j])))/del_H)
+            pri01_dMdTH = (((float(dMdT_for_dMdTH[i + 1][j])) - (float(dMdT_for_dMdTH[i][j])))/ (H_lin[i+1] - H_lin[i]))
 
             pri02_dMdTH_con.append(pri01_dMdTH)
 
@@ -195,7 +195,7 @@ def mce_3d(path, sheet_index, T_row, H_col, g_name, M_unit, H_unit, T_unit, dpi,
     for j in range(0, len(T_lin)):
         pri02_dMdH_con = []
         for i in range(0, len(H_lin) - 1):
-            pri01_dMdH = abs(((float(M_res_HT[i + 1][j])) - (float(M_res_HT[i][j])))/del_H)
+            pri01_dMdH = (((float(M_res_HT[i + 1][j])) - (float(M_res_HT[i][j])))/(H_lin[i+1] - H_lin[i]))
 
             pri02_dMdH_con.append(pri01_dMdH)
 

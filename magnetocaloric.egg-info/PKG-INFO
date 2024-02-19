@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: magnetocaloric
-Version: 1.6.7
+Version: 1.6.9
 Summary: Effective Approach To Calculate Magnetocaloric Effect Of Any Magnetic Material Using Python
 Home-page: https://github.com/supratimdasinfo/magnetocaloric.mcepy
 Author: Supratim Das
@@ -76,7 +76,7 @@ For the Python programming approach, follow the steps in the README.
 You can easily install the **magnetocaloric** package using pip. Open your command-line interface and run the following command:
 
 ```shell
-pip install magnetocaloric==1.6.7
+pip install magnetocaloric==1.6.9
 ```
 
 This will install the specified version of the **magnetocaloric** package.
@@ -115,8 +115,9 @@ class mceanalysis:
 
     def plot_mce_3d_data(self):
         mp.mce_3d(**self.kwargs)
+        
 ```
-To interpolate the Magnetic Moment data within a user-defined range of field values and a specified interval, the `interpol` function is available. This function offers flexibility by allowing users to set arguments such as `interpol_type`, `interpol_status` and `degree` for interpolation with minimal error. 
+To interpolate the Magnetic Moment data within a user-defined range of field values and a specified interval, the `interpol` function is available. This function offers flexibility by allowing users to set arguments such as `interpol_type`, `interpol_mode` and `degree` for interpolation with minimal error. 
 
 ```python
 interpolator = mceanalysis(
@@ -128,7 +129,7 @@ interpolator = mceanalysis(
     final_val=50000,
     interval=500,
     interpol_type='lin',
-    interpol_status='None',
+    interpol_mode='None',
     deg='None'
 )
 
@@ -166,7 +167,7 @@ interpolator = mceanalysis(
     final_val=50000,
     interval=500,
     interpol_type='poly',
-    interpol_status='manual',
+    interpol_mode='manual',
     deg=3  # To visualize with degree 2, change to deg=2
 )
 

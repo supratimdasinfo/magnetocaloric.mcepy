@@ -59,7 +59,7 @@ For the Python programming approach, follow the steps in the README.
 You can easily install the **magnetocaloric** package using pip. Open your command-line interface and run the following command:
 
 ```shell
-pip install magnetocaloric==1.6.8
+pip install magnetocaloric==1.6.9
 ```
 
 This will install the specified version of the **magnetocaloric** package.

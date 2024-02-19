@@ -85,7 +85,7 @@ def data_plotting(g_name, one_n, n, T, H, M_unit, H_unit, T_unit, colour, marker
                 plt.plot(temperatures, five_entropy_change_con[q], linestyle='solid', label=Label_one[q], color= next(colour), marker=next(marker), markersize =5, linewidth= 0.5)
                 plt.legend(loc=str(loc), frameon=False, ncol=2)
             plt.xlabel(f"Temperature ({T_unit})")
-            plt.ylabel(f"-∆Sm ({M_unit}).{H_unit}/{T_unit}")
+            plt.ylabel(f"∆Sm ({M_unit}).{H_unit}/{T_unit}")
             plt.title("Temperature depedence of Entropy change")
             plt.grid(color='grey', linestyle='-', linewidth=0.25, alpha=0.5)
             plt.show()
@@ -94,7 +94,7 @@ def data_plotting(g_name, one_n, n, T, H, M_unit, H_unit, T_unit, colour, marker
               plt.plot((temperatures), (five_entropy_change_con[q]), linestyle='solid', color= next(colour), marker = next(marker), markersize =5, linewidth= 0.5)
                               
             plt.xlabel(f"Temperature ({T_unit})", fontname = "monospace")
-            plt.ylabel(f"-∆Sm ({M_unit}).{H_unit}/{T_unit}", fontname = "monospace")
+            plt.ylabel(f"∆Sm ({M_unit}).{H_unit}/{T_unit}", fontname = "monospace")
             plt.title("Temperature depedence of Entropy change", fontname = "monospace")
 
             plt.grid(color='grey', linestyle='-', linewidth=0.25, alpha=0.5)

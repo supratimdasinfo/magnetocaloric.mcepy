@@ -33,7 +33,7 @@ def n_expo(n, one_n, two_n, H, M, T):
     for i in range (0, one_n-1):
             entropy_change_con_prov = []
             for j in range (0, n-1):
-                    entropy_change = ((float(M_arr[i][j + 1]) - float(M_arr[i][j])) / (float(T_arr[j + 1]) - float(T_arr[j]))) * (float(H_arr[i+1]) - float(H_arr[i])) 
+                    entropy_change = ((float(M_arr[i][j + 1]) - float(M_arr[i][j])) / (float(T_arr[j + 1]) - float(T_arr[j]))) * abs(float(H_arr[i+1]) - float(H_arr[i])) 
 
                     entropy_change_con_prov.append(entropy_change)
             sum_array += np.asarray(entropy_change_con_prov)

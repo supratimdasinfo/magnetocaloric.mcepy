@@ -32,7 +32,7 @@ def delSm_T(n, one_n, two_n, H, M, T):
 
         # Calculate entropy change for each data point in the one_n-1 range
         for j, i in zip(range(0, (one_n - 1), 1), range(q, two_n, n)):
-            entropy_change = abs((float(M[i + 1]) - float(M[i])) / (float(T[i + 1]) - float(T[i]))) * (float(H[j + 1]) - float(H[j]))
+            entropy_change = ((float(M[i + 1]) - float(M[i])) / (float(T[i + 1]) - float(T[i]))) * abs(float(H[j + 1]) - float(H[j]))
 
             one_entropy_change_con += entropy_change
             one_entropy_change_con = float(one_entropy_change_con)

@@ -25,7 +25,7 @@ def T_FWHM_RCP(n, Label_one, six_entropy_change_con):
 
     # Iterate through each temperature data.
     for j in range(1, len(Label_one) + 1):
-        del_S_peak = np.max(six_entropy_change_con[j])
+        del_S_peak = np.min(six_entropy_change_con[j])
 
         # Find the index of the maximum entropy change value.
         for k in range(n - 1):
