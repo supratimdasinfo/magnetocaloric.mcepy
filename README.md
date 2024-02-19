@@ -59,7 +59,7 @@ For the Python programming approach, follow the steps in the README.
 You can easily install the **magnetocaloric** package using pip. Open your command-line interface and run the following command:
 
 ```shell
-pip install magnetocaloric==1.6.9
+pip install magnetocaloric==1.7.0
 ```
 
 This will install the specified version of the **magnetocaloric** package.
@@ -215,7 +215,7 @@ plotter = mceanalysis(
     sheet_index=1,
     T_row=1,
     H_col='A',
-    g_name='MH_plot',
+    g_name='sus_plot',
     M_unit='emu/g',
     H_unit='Oe',
     T_unit='K',

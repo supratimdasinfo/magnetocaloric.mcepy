@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: magnetocaloric
-Version: 1.6.9
+Version: 1.7.0
 Summary: Effective Approach To Calculate Magnetocaloric Effect Of Any Magnetic Material Using Python
 Home-page: https://github.com/supratimdasinfo/magnetocaloric.mcepy
 Author: Supratim Das
@@ -76,7 +76,7 @@ For the Python programming approach, follow the steps in the README.
 You can easily install the **magnetocaloric** package using pip. Open your command-line interface and run the following command:
 
 ```shell
-pip install magnetocaloric==1.6.9
+pip install magnetocaloric==1.7.0
 ```
 
 This will install the specified version of the **magnetocaloric** package.
@@ -232,7 +232,7 @@ plotter = mceanalysis(
     sheet_index=1,
     T_row=1,
     H_col='A',
-    g_name='MH_plot',
+    g_name='sus_plot',
     M_unit='emu/g',
     H_unit='Oe',
     T_unit='K',
