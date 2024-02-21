@@ -50,7 +50,7 @@ def T_FWHM_RCP(n, Label_one, six_entropy_change_con):
                 half_max_entropy_at_T_con.append(abs(half_max_entropy_at_T))
         half_max_entropy_at_T_con.append(six_entropy_change_con[0][n - 2])
 
-        # Find the temperature range for FWHM.
+        # Find the temperature range for FWHM
         for l in range(len(half_max_entropy_at_T_con) - 1):
             l_th = half_max_entropy_at_T_con[l]
             l_th_plus_one = half_max_entropy_at_T_con[l + 1]
@@ -59,7 +59,7 @@ def T_FWHM_RCP(n, Label_one, six_entropy_change_con):
                 T_right = l_th_plus_one
 
         T_FWHM = T_right - T_left
-        RCP = T_FWHM * del_S_peak
+        RCP = abs(T_FWHM) * abs(del_S_peak)
         T_FWHM_con.append(round(T_FWHM, 4))
         RCP_con.append(round(RCP, 4))
 

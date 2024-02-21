@@ -59,7 +59,7 @@ For the Python programming approach, follow the steps in the README.
 You can easily install the **magnetocaloric** package using pip. Open your command-line interface and run the following command:
 
 ```shell
-pip install magnetocaloric==1.7.0
+pip install magnetocaloric==1.7.1
 ```
 
 This will install the specified version of the **magnetocaloric** package.
@@ -129,7 +129,7 @@ Explanation of the `interpol` function parameters:
 - `final_val`: Define the maximum applied field value for data interpolation.
 - `interval`: Set the interval for interpolation.
 - `interpol_type`: Choose the interpolation type. For linear interpolation, use `'lin'`. For polynomial interpolation, use `'poly'`.
-- `interpolation`: For polynomial interpolation, choose between `'auto'` (automatically finds the best degree) or `'manual'` (set the degree manually using the `deg` argument).
+- `interpol_mode`: For polynomial interpolation, choose between `'auto'` (automatically finds the best degree) or `'manual'` (set the degree manually using the `deg` argument).
 - `deg`: If using manual polynomial interpolation, specify the degree as an integer.
 
 > **Warning**

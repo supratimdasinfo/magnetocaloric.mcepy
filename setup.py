@@ -14,7 +14,7 @@ classifiers = [
  
 setup(
   name='magnetocaloric',
-  version='1.7.0',
+  version='1.7.1',
   description='Effective Approach To Calculate Magnetocaloric Effect Of Any Magnetic Material Using Python',
   long_description=long_description,
   long_description_content_type="text/markdown",
