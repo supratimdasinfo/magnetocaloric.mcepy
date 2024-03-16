@@ -285,12 +285,12 @@ Feel free to explore the code, try out the application, and share your thoughts 
 
 #### Project Guide: 
 
-<img src="https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/sudiptapal.png?raw=True" alt="Sudipta Pal" width="30" height="30"> Sudipta Pal
+- <img src="https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/sudiptapal.png?raw=True" alt="Sudipta Pal" width="25" height="25"> Sudipta Pal
 
 #### Contributors: 
 
-<img src="https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/bhaskarbiswas.png?raw=True" alt="Bhaskar Biswas" width="30" height="30"> Bhaskar Biswas
-<img src="https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/dipanjanbiswas.png?raw=True" alt="Dipanjan Biswas" width="30" height="30"> Dipanjan Biswas
+- <img src="https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/bhaskarbiswas.png?raw=True" alt="Bhaskar Biswas" width="25" height="25">  Bhaskar Biswas
+- <img src="https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/dipanjanbiswas.png?raw=True" alt="Dipanjan Biswas" width="25" height="25">  Dipanjan Biswas
 
 
 
