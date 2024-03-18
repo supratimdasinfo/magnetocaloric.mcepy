@@ -283,14 +283,18 @@ If you're interested in contributing to the development of this project, your co
 
 Feel free to explore the code, try out the application, and share your thoughts with us. We value the contributions of our community members and look forward to collaborating with you. Let's make this project even more amazing together!
 
-#### Project Guide: 
+#### Project Supervisor: 
 
-- <img src="https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/sudiptapal.png?raw=True" alt="Sudipta Pal" width="25" height="25"> Sudipta Pal
+| <img src="https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/sudiptapal.png?raw=True" alt="Sudipta Pal" width="35" height="35"> | Dr. Sudipta Pal (Associate Professor)|
+|------------------------------------------------------------|-----------------|
 
-#### Contributors: 
+#### Project Advisors: 
 
-- <img src="https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/bhaskarbiswas.png?raw=True" alt="Bhaskar Biswas" width="25" height="25">  Bhaskar Biswas
-- <img src="https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/dipanjanbiswas.png?raw=True" alt="Dipanjan Biswas" width="25" height="25">  Dipanjan Biswas
+| <img src="https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/bhaskarbiswas.png?raw=True" alt="Bhaskar Biswas" width="35" height="35">  | Dr. Bhaskar Biswas |
+|------------------------------------------------------------|-----------------|
+
+| <img src="https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/dipanjanbiswas.png?raw=True" alt="Dipanjan Biswas" width="35" height="35"> |  Dipanjan Biswas (Research Scholar) |
+|------------------------------------------------------------|-----------------|
 
 
 
