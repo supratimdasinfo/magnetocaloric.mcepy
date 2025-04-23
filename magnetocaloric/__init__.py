@@ -17,7 +17,7 @@ __all__ = [
 
 # Example metadata:
 
-__version__ = '1.6.6'  # Package version
+__version__ = '1.7.1'  # Package version
 __author__ = 'Supratim Das' # Package author
 __email__ = 'supratim0707@gmail.com' #Get in Touch
 __description__ = 'Effective Approach To Calculate Magnetocaloric Effect Of Any Magnetic Material Using Python'  # Package description

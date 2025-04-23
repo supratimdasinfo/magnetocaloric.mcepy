@@ -1,3 +1,4 @@
+
 # Magnetocaloric - Python Module for Magnetocaloric Performance Analysis
 
 ![Logo](https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/mcepylogo.png?raw=True)
@@ -14,6 +15,13 @@
 ## Overview
 
 **magnetocaloric** is a powerful Python module designed to determine the magnetocaloric performance of magnetic materials. Developed by Supratim Das, this module provides an effective way to analyze magnetic behavior and parameters using isotherm M(H) curves and the Maxwell Relation.
+
+If you use this package in your research or work, please consider citing the following paper:
+
+> DOI: [10.13140/RG.2.2.17109.13284](http://dx.doi.org/10.13140/RG.2.2.17109.13284)
+
+Your citation helps support the development and continued maintenance of this project. Thank you!
+
 
 ## Key Features
 
@@ -51,6 +59,9 @@ This table provides a clear and concise overview of the 3D models and their corr
 - Intuitive Graphical User Interface: Simplifying Program Interaction. Experience seamless interaction with our PyQt5-powered UI. Standalone Python executable created using PyInstaller - no additional dependencies required.
 
 ![GUI](https://raw.githubusercontent.com/supratimdasinfo/magnetocaloric.mcepy/main/images/GUIv3.PNG?raw=True)
+To generate activation keys for the GUI, lab members can visit the following link:
+
+➡️ [Generate Activation Key](http://mceactivation.great-site.net/) — **This link is intended specifically for lab members.**
 
 For the Python programming approach, follow the steps in the README.
 
@@ -303,3 +314,4 @@ Feel free to explore the code, try out the application, and share your thoughts 
 If you have any questions or need assistance, you can reach out to me directly via email at supratim0707@gmail.com.
 
 
+[![Visitors](https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fgithub.com%2Fsupratimdasinfo%2Fmagnetocaloric.mcepy&labelColor=%23697689&countColor=%23263759)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fsupratimdasinfo%2Fmagnetocaloric.mcepy)
