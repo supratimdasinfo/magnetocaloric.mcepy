@@ -9,16 +9,18 @@
 ![Code Size](https://img.shields.io/github/languages/code-size/supratimdasinfo/magnetocaloric.mcepy)
 ![Closed Issues](https://img.shields.io/github/issues-closed/supratimdasinfo/magnetocaloric.mcepy)
 ![Last Commit](https://img.shields.io/github/last-commit/supratimdasinfo/magnetocaloric.mcepy)
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15268203.svg)](https://doi.org/10.5281/zenodo.15268203)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15268487.svg)](https://doi.org/10.5281/zenodo.15268487)
 
 
 ## Overview
 
 **magnetocaloric** is a powerful Python module designed to determine the magnetocaloric performance of magnetic materials. Developed by Supratim Das, this module provides an effective way to analyze magnetic behavior and parameters using isotherm M(H) curves and the Maxwell Relation.
 
-If you use this package in your research or work, please consider citing the following paper:
+If you use this package in your research or work, please consider citing the following:
 
-> DOI: [10.13140/RG.2.2.17109.13284](http://dx.doi.org/10.13140/RG.2.2.17109.13284)
+> DOI: [10.5281/zenodo.15268203](https://doi.org/10.5281/zenodo.15268203)   
+> DOI: [10.5281/zenodo.15268487](https://doi.org/10.5281/zenodo.15268487)  
 
 Your citation helps support the development and continued maintenance of this project. Thank you!
 
